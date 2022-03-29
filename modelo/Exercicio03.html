@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LBE | 003</title>
+    <style>
+        body{
+            background-color: rgb(255, 230, 0);
+            font-family:'Times New Roman', Times, serif;
+            text-align: center;
+        }
+        .box_nav{
+            background-color:rgb(57, 69, 179);
+            padding: 5px;
+            border-radius: 15px;
+        }
+        .box{
+            background-color: rgba(0, 0,0, 0.6);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform:translate(-50%,-50%) ;
+            padding: 15px;
+            border-radius: 15px;
+            color: white;
+        }
+        input{
+            padding: 10px;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            font-size: 15px;
+            width: 50%;
+        }
+        button{
+            padding: 10px;
+            border: none;
+            outline: none;
+            width: 50%;
+            background-color: blue;
+            color: white;
+            border-radius:10px ;
+            cursor: pointer;  
+            transition: 0.5s; 
+        }
+        button:hover{
+            background-color: rgb(61, 61, 230);
+        }
+    </style>
+</head>
+<body>
+    <div class="box_nav">
+        <h1>Exercicio #00</h1>
+        <h2>Lucas Bischof Elias</h2>
+    </div>
+    <div class="box">
+        <p>Leia X e Y e troque o valor de X para Y </p>
+        <input type="number" placeholder="Digite o primeiro valor " id="num2">
+        <input type="number" placeholder="Digite o segundo valor " id="num1">
+        <br><br>
+        <button onclick="mult(a,b)">Enviar</button>
+    </div>
+    <script src="script_ex03.js"></script>
+</body>
+</html>
