@@ -16,39 +16,71 @@ app.listen(3000, function(){
 
 
 
-app.get('/Exer1/:linhas/:colunas/', function(req,res){
-    let lin = req.params.linhas;
-    let col = req.params.colunas;
- 
+app.get('/Exer1/:num/', function(req,res){
+    var num = req.params.num;
+    var msg = '';
+    function calcMatriz(num){
     
-var matriz = new Array(col); 
-var matrizM =new Array(col);
-for (var i = 0; i < col; i++) 
-{
-	matriz[i] = new Array(lin); 
-	matrizM[i] = new Array(lin); 
-}
-for(linha=0;linha<lin;linha++)
-{
-    for(coluna=0;coluna<col;coluna++){
-
-        matriz[linha][coluna]=coluna
-        matrizM[linha][coluna]=coluna
-        
+    num = parseInt(num)
+    var lin = num;
+    var col = lin;
+    var maior = 0;
+    
+    var matriz = new Array(col); 
+    var matrizM =new Array(col);
+    for (var i = 0; i < col; i++) 
+    {
+        matriz[i] = new Array(lin); 
+        matrizM[i] = new Array(lin); 
     }
-}
-for(linha=0;linha<lin;linha++)
-{
-    for(coluna=0;coluna<col;coluna++) {
-        
-        var maior=lin-1
-        matrizM[linha][coluna]=maior*matrizM[linha][coluna]
-        
-        
+    for(linha=0;linha<lin;linha++)
+    {
+        for(coluna=0;coluna<col;coluna++){
+
+            matriz[linha][coluna]=(Math.round(Math.random()*10))
+           
+        }
     }
-   
+    for(linha=0;linha<lin;linha++)
+    {
+        for(coluna=0;coluna<col;coluna++){
+
+            msg = msg + matriz[linha][coluna]+"|"
+            
+        }
+        msg = msg+"<br/>"
+    }
+    for(linha=0;linha<lin;linha++)
+    {
+        for(coluna=0;coluna<col;coluna++) {
+            
+            if(matriz[linha][coluna]> maior){
+                maior=matriz[linha][coluna]
+            }
+          
+        }
+    
+    }
+    for(linha=0;linha<lin;linha++)
+    {
+        for(coluna=0;coluna<col;coluna++) {
+           
+            matrizM[linha][coluna]=maior*matriz[linha][coluna]
+        }
+    
+    }
+    for(linha=0;linha<lin;linha++)
+    {
+        for(coluna=0;coluna<col;coluna++){
+		
+            msg = msg + matrizM[linha][coluna]+"|"
+            
+        }
+        msg = msg+"<br/>"
+    }
+return msg
 }
 
-  res.send(matriz.toString()+ matrizM.toString());
+  res.send(calcMatriz(num));
 
 });
