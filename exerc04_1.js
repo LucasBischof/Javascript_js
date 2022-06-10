@@ -19,5 +19,6 @@ while (i<=num_ter) {
         i=(i+1)
     }
 }
+
 lista.length = num_ter
 console.log(lista)
