@@ -7,8 +7,6 @@ function par(num){
     num--;
     par(num)
      
- }
-  
+ } 
 }
-
 par(7)
